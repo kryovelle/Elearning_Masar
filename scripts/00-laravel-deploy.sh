@@ -6,6 +6,10 @@ echo "Caching config..."
 php artisan config:cache
 php artisan route:cache
 
+echo "Linking storage..."
+php artisan storage:link || echo "Storage link already exists, skipping"
+
+
 echo "Running migrations..."
 php artisan migrate --force
 
