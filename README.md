@@ -77,7 +77,7 @@ npm run dev
 php artisan serve
 ```
 
-The app will be available at `http://localhost:8000`.
+The app will be available at `https://masar-1be6.onrender.com/`.
 
 ## Payment verification flow
 
