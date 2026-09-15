@@ -1,6 +1,22 @@
+# ---------- STAGE 1: Build frontend assets with Node ----------
+FROM node:20-alpine AS frontend
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+
+# ---------- STAGE 2: Laravel app with PHP + Nginx ----------
 FROM richarvey/nginx-php-fpm:3.1.6
 
 COPY . .
+
+# Copy compiled Vite assets from Stage 1
+COPY --from=frontend /app/public/build /var/www/html/public/build
 
 # Image config
 ENV SKIP_COMPOSER=1
