@@ -36,4 +36,6 @@ RUN composer install --optimize-autoloader --no-dev
 # Allow Nginx to write to storage/cache
 RUN chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
 
+RUN cat /etc/nginx/sites-enabled/default.conf 2>/dev/null || cat /etc/nginx/http.d/default.conf 2>/dev/null || find /etc/nginx -name "*.conf" -exec echo {} \; -exec cat {} \;
+
 CMD ["/start.sh"]
