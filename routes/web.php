@@ -27,7 +27,7 @@ Route::get('/Public/Login', function(){ return view('Public.LoginView'); })->nam
 
 
 
-Route::get('/Student', function(){ return view('Student.DashboardView'); })->name('student.dashboard');
+Route::get('/Student', function(){ return view('Student.DashboardView'); });
 
 Route::get('/Student/Dashboard', function(){ return view('Student.DashboardView'); })->name('student.dashboard');
 
