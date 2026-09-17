@@ -38,6 +38,5 @@ RUN chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
 
 RUN cat /etc/nginx/sites-enabled/default.conf 2>/dev/null || cat /etc/nginx/http.d/default.conf 2>/dev/null || find /etc/nginx -name "*.conf" -exec echo {} \; -exec cat {} \;
 
-RUN find / -name "www.conf" 2>/dev/null -exec grep -H "^listen" {} \; || true
 
 CMD ["/start.sh"]
